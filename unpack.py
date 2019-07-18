@@ -55,7 +55,8 @@ if __name__ == '__main__':
 
         # read image file
         try:
-            sheet_image = Image.open(sheet.filename)
+            sheet_path = os.path.join(os.path.dirname(sys.argv[1]), sheet.filename)
+            sheet_image = Image.open(sheet_path)
         except Exception as e:
             # skip current sheet if there's a problem opening the image
             print('ERROR: cannot open image \'{0}\': {1}'.format(sheet.filename, str(e)))
